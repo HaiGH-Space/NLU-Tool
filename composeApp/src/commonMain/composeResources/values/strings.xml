@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="login">Login</string>
+    <string name="timetable">Timetable</string>
+    <string name="account">Account</string>
+    <string name="remember_me">Remember me</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="search_hint">Search...</string>
+    <string name="close_hint">Clear search</string>
+    <string name="search_result">Search results</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_result">No search results.</string>
+    <string name="no_favorites">You haven't saved any favorite subject.</string>
+
+    <string name="error_request_time_out">The request timed out.</string>
+    <string name="error_unknown">Something went wrong.</string>
+    <string name="error_no_internet">No internet.</string>
+    <string name="error_too_many_request">Too many request.</string>
+    <string name="error_serialization">Couldn't parser data.</string>
+</resources>

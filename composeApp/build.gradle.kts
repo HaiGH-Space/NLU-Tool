@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
     kotlin("plugin.serialization")
 }
 
@@ -19,7 +21,6 @@ kotlin {
     }
     
     jvm("desktop")
-    
     sourceSets {
         val desktopMain by getting
         
@@ -27,6 +28,8 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -41,6 +44,13 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.navigation.compose)
             implementation(libs.ktor.ktor.client.cio)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(compose.materialIconsExtended)
+            api(libs.koin.core)
+            implementation(libs.bundles.coil)
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
         }
         desktopMain.dependencies {
             implementation(libs.ktor.client.okhttp)
@@ -52,7 +62,7 @@ kotlin {
 
 android {
     namespace = "vn.id.tool.nlu"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "vn.id.tool.nlu"
@@ -77,9 +87,6 @@ android {
     }
 }
 
-dependencies {
-    debugImplementation(compose.uiTooling)
-}
 compose.resources{
     publicResClass = false
     packageOfResClass = "vn.id.tool.nlu.res"
@@ -96,3 +103,12 @@ compose.desktop {
         }
     }
 }
+dependencies {
+    ksp(libs.room.compiler)
+    implementation(compose.uiTooling)
+}
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+
+
