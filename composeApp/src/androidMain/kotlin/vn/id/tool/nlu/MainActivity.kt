@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val database =  DBFactory(applicationContext).createDatabase()
-            App(database)
+            App(database,DevicePlatform())
         }
     }
 }

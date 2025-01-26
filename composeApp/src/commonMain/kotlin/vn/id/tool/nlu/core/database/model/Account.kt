@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class Account(
     @PrimaryKey val username:String,
-    val password:String
+    val password:String,
+    val accessToken: String?
 )

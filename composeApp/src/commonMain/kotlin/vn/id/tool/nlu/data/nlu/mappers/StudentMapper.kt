@@ -8,6 +8,7 @@ fun StudentDto.toStudent(): Student {
         id = id,
         name = name,
         email = email,
-        username = userName
+        username = userName,
+        accessToken = accessToken
     )
 }

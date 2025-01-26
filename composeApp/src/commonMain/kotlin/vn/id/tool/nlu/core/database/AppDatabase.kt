@@ -7,7 +7,7 @@ import vn.id.tool.nlu.core.database.model.Account
 
 @Database(
     entities = [Account::class],
-    version = 1
+    version = 2
 )
 abstract class AppDatabase :RoomDatabase() {
     abstract fun accountDao(): AccountDao

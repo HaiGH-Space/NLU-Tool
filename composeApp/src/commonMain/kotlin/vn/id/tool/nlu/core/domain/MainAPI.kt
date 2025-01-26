@@ -55,6 +55,7 @@ abstract class MainAPI(
     protected suspend inline fun <reified T> response(response: HttpResponse): Result<T, Error> {
         return when (response.status.value) {
             in 200..299 -> {
+//                println(response.bodyAsText())
                 val data = response.body<T>()
                 Result.Success(data)
             }

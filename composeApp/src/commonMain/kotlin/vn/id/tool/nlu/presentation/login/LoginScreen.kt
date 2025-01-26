@@ -29,14 +29,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
-
 import vn.id.tool.nlu.core.presentation.components.LoadingIndicator
 import vn.id.tool.nlu.core.presentation.components.TextField
 import vn.id.tool.nlu.core.presentation.components.TrailingIconPassword
-import vn.id.tool.nlu.domain.Student
 import vn.id.tool.nlu.res.Res
 import vn.id.tool.nlu.res.login
 import vn.id.tool.nlu.res.password
@@ -48,15 +45,13 @@ import vn.id.tool.nlu.resource.defaultPadding
 @Composable
 fun LoginScreenRoot(
     viewModel: LoginViewModel = koinViewModel(),
-    onLoginSuccess: (student: Student) -> Unit,
+    onLoginSuccess: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     LaunchedEffect(state.isLoginSuccess) {
         if (state.isLoginSuccess) {
-            state.student?.let { student ->
-                onLoginSuccess(student)
-            }
+            onLoginSuccess()
         }
     }
     LoginScreen(
@@ -117,7 +112,7 @@ fun LoginScreen(
                 ),
                 trailingIcon = {
                     TrailingIconPassword(state.showPassword, value = state.password,
-                        { onAction(LoginAction.OnShowPassword(state.showPassword)) })
+                        { onAction(LoginAction.OnPasswordShow(state.showPassword)) })
                 },
                 singleLine = true,
                 visualTransformation = if (state.showPassword) VisualTransformation.None else PasswordVisualTransformation(),

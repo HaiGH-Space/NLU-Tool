@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="login">Đăng nhập</string>
+    <string name="room">Phòng</string>
+    <string name="time">Thời gian</string>
+    <string name="greeting">Xin chào,</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="personal_information">Thông tin cá nhân</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="timetable">Thời khóa biểu</string>
+    <string name="account">Tài khoản</string>
+    <string name="remember_me">Ghi nhớ tôi</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="search_hint">Tìm kiếm...</string>
+    <string name="close_hint">Xóa tìm kiếm</string>
+    <string name="search_result">Kết quả tìm kiếm</string>
+    <string name="favorites">Yêu thích</string>
+    <string name="no_result">Không có kết quả tìm kiếm.</string>
+    <string name="no_favorites">Bạn chưa lưu môn học yêu thích nào.</string>
+    <string name="error_request_time_out">Yêu cầu đã hết thời gian chờ.</string>
+    <string name="error_unknown">Đã xảy ra lỗi.</string>
+    <string name="error_no_internet">Không có kết nối internet.</string>
+    <string name="error_too_many_request">Yêu cầu quá nhiều.</string>
+    <string name="error_serialization">Không thể phân tích dữ liệu.</string>
+</resources>

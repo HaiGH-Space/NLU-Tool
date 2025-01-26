@@ -14,5 +14,7 @@
   "locDsDiemSinhVien": "srm/w-locdsdiemsinhvien",
   "locDsDieuKienLoc": "dkmh/w-locdsdieukienloc",
   "locDsKQdkmhSinhVien": "dkmh/w-locdskqdkmhsinhvien",
-  "xuLydkmhSinhVien": "dkmh/w-xulydkmhsinhvien"
+  "xuLydkmhSinhVien": "dkmh/w-xulydkmhsinhvien",
+  "locDsTkbHocKyTheoDoiTuong": "sch/w-locdstkbhockytheodoituong",
+  "locDsHocKyTkbUser": "sch/w-locdshockytkbuser"
 }

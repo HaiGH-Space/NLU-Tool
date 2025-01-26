@@ -23,7 +23,9 @@ class Constant(
     val locDsDiemSinhVien: String,
     val locDsDieuKienLoc: String,
     val locDsKQdkmhSinhVien: String,
-    val xuLydkmhSinhVien: String
+    val xuLydkmhSinhVien: String,
+    val locDsTkbHocKyTheoDoiTuong: String,
+    val locDsHocKyTkbUser: String,
 ) {
     companion object {
         private var constant: Constant? = null

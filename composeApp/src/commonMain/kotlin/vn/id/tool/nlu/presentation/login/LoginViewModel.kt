@@ -16,6 +16,7 @@ import vn.id.tool.nlu.core.network.onError
 import vn.id.tool.nlu.core.network.onSuccess
 import vn.id.tool.nlu.core.presentation.UiText
 import vn.id.tool.nlu.data.nlu.dto.ErrorDto
+import vn.id.tool.nlu.domain.Student
 import vn.id.tool.nlu.res.Res
 import vn.id.tool.nlu.res.error_unknown
 
@@ -46,7 +47,7 @@ class LoginViewModel(
                 login(_state.value.username, state.value.password)
             }
 
-            is LoginAction.OnShowPassword -> {
+            is LoginAction.OnPasswordShow -> {
                 _state.update {
                     it.copy(showPassword = !action.showPassword)
                 }
@@ -69,6 +70,13 @@ class LoginViewModel(
                     it.copy(isRememberMe = action.isRememberMe)
                 }
             }
+            is LoginAction.OnIsLoginSuccessChange -> {
+                _state.update {
+                    it.copy(
+                        isLoginSuccess = action.isSuccess,
+                    )
+                }
+            }
 
             else -> Unit
         }
@@ -83,7 +91,8 @@ class LoginViewModel(
         api.login(username, password)
             .onSuccess { student ->
                 if (state.value.isRememberMe) {
-                    accountDao.insert(Account(username, password))
+                    Student.student = student
+                    accountDao.insert(Account(username, password,student.accessToken))
                 }
                 _state.update {
                     it.copy(
